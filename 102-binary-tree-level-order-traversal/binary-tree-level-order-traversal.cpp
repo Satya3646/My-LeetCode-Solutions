@@ -14,24 +14,26 @@ public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         queue <TreeNode*> q;
         vector <vector <int>> ans;
-        if(!root)
+        if(!root) // If tree is empty return empty answer
             return ans;
-        q.push(root);
+        q.push(root); // Put the root into the queue to start traversal
         while(!q.empty())
         {
-            vector <int> tmp;
-            int n = q.size();
+            vector <int> tmp; // Vector to store node values in current level
+            int n = q.size(); // Number of nodes in current level
             for(int i = 0; i < n; i++)
             {
-                TreeNode *node = q.front();
+                // Pop the front node from the queue
+                TreeNode *node = q.front(); 
                 q.pop();
                 tmp.push_back(node->val);
+                // Put node of next level into the queue
                 if(node->left)
                     q.push(node->left);
                 if(node->right)
                     q.push(node->right);
             }
-            ans.push_back(tmp);
+            ans.push_back(tmp); // Add the current level values to answer
         }
         return ans;
     }
