@@ -12,12 +12,13 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(!p & !q) // if both are null they are identical
+        if(!p & !q) // if both are null they are identical.
             return true;
-        if((p && !q) || (!p && q)) // if only one of them is null the not identical
+        if((p && !q) || (!p && q)) // if only one of them is null the not identical.
             return false;
-        if(p->val != q->val) // Check their values
+        if(p->val != q->val) // Check their values.
             return false;
+        // Next check if the left and right subtrees are identical or not.
         return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
 };
