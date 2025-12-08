@@ -16,8 +16,7 @@ public:
         if(!root)
             return ans;
         // We need the rightmost node for different y level. 
-        // BFS gives us the left to right traversal order while gradually increasing y level hence we can directly update the map.
-        map <int, int> mp; // Y-coordinate to node-value mapping.
+        // BFS gives us the left to right traversal order while gradually increasing y level hence we can just take the last node value at each level and push it to answer.
         queue <TreeNode*> q;
         q.push(root);
         while(!q.empty())
