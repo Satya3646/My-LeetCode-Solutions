@@ -16,17 +16,17 @@ public:
         if(!root)
             return node;
         TreeNode* curr = root;
-        while(curr != node)
+        while(curr != node) // When we attach the node to the tree iteration should end.
         {
-            if(curr->val > val)
+            if(curr->val > val) // if current is greater the node belongs to its left.
             {
-                if(!curr->left)
+                if(!curr->left) // if a right doesnt exist then attach the node as right.
                     curr->left = node;
                 curr = curr->left;
             }
-            else
+            else // if current is smaller the node belongs to its right.
             {
-                if(!curr->right)
+                if(!curr->right) // if a left doesnt exist then attach the node as left.
                     curr->right = node;
                 curr = curr->right;
             }
