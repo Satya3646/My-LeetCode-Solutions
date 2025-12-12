@@ -22,7 +22,7 @@ public:
             if(nums[i] == 0) // Skip the zeros.
                 continue;
             r[nums[i]]--; // Remove current element(nums[j]) from right.
-            long long left = 0, right = 0;
+            int left = 0, right = 0;
             if(l.find(2*nums[i]) != l.end())
                 left = l[2*nums[i]];
             if(r.find(2*nums[i]) != r.end())
