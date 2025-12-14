@@ -16,12 +16,12 @@ public:
     {
         if(!root)
             return -1;
-        int l = kthSmallest(root->left, k);
-        if(l != -1)
+        int l = kthSmallest(root->left, k); // Explore the left subtree.
+        if(l != -1) // If value is not -1 return it.
             return l;
-        k--;
-        if(k == 0)
+        k--; // Decrement k.
+        if(k == 0) // If k = 0 return the current node value.
             return root->val;
-        return kthSmallest(root->right, k);
+        return kthSmallest(root->right, k); // Traverse the right subtree.
     }
 };
