@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void dfs(string word, string &beginWord, vector <string> &path, unordered_map <string, int> &depthMap, vector <vector <string>> &ans)
+    void dfs(string &word, string &beginWord, vector <string> &path, unordered_map <string, int> &depthMap, vector <vector <string>> &ans)
     {
         if(word == beginWord) // if beginWord is reached then add to answer.
         {
