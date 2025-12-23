@@ -15,9 +15,10 @@ public:
         for(int i = 0; i < n; i++) // loop to fix the first event as ith event, we will choose the second even using binary search.
         {
             // find an even such that it starts after the current event.
-            auto it = upper_bound(events.begin(), events.end(), vector <int> {events[i][1], INT_MAX, INT_MAX}); // INT_MAX is used to ensure that only those with larger start time than the end time of the current event are considered(prevents those with the same start time as current even but a larger endtime from being considered).
-            if(it != events.end())
-                maxValue = max(maxValue, events[i][2] + suffixMax[it - events.begin()]);
+            int indx = upper_bound(events.begin(), events.end(), vector <int> {events[i][1], INT_MAX, INT_MAX}) - events.begin(); 
+            // INT_MAX is used to ensure that only those with larger start time than the end time of the current event are considered(prevents those with the same start time as current even but a larger endtime from being considered).
+            if(indx < n)
+                maxValue = max(maxValue, events[i][2] + suffixMax[indx]);
             else
                 maxValue = max(maxValue, events[i][2]);
         }
