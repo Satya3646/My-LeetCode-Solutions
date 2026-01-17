@@ -9,24 +9,19 @@ public:
         {
             for(int j = i+1; j < n; j++) // select Rectangle 2.
             {
-                // Rectangle 1.
-                int a1 = bottomLeft[i][0];
-                int b1 = bottomLeft[i][1];
-                int c1 = topRight[i][0];
-                int d1 = topRight[i][1];
+                // Bottom Left Corner of intersection.
+                int x1 = max(bottomLeft[i][0], bottomLeft[j][0]);
+                int y1 = max(bottomLeft[i][1], bottomLeft[j][1]);
 
-                // Rectangle 2.
-                int a2 = bottomLeft[j][0];
-                int b2 = bottomLeft[j][1];
-                int c2 = topRight[j][0];
-                int d2 = topRight[j][1];
+                // Top Right Corner of the intersection.
+                int x2 = min(topRight[i][0], topRight[j][0]);
+                int y2 = min(topRight[i][1], topRight[j][1]);
                 
                 // Check if they intersect.
-                if(!(c1 <= a2 || c2 <= a1 || d1 <= b2 || d2 <= b1))
+                if(x1 < x2 && y1 < y2)
                 {
                     // we take the min intersection region side to form a square.
-                    maxSide = max(maxSide, 1LL * min(min(c1, c2) - max(a1, a2), 
-                                                     min(d1, d2) - max(b1, b2)));
+                    maxSide = max(maxSide, 1LL * min(x2 - x1, y2 - y1));
                 }
             }
         }
